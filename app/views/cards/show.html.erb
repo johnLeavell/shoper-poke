@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Card #<%= @the_card.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/cards">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_card/<%= @the_card.id %>">
+          Delete card
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_card.name %>
+      </dd>
+
+      <dt>
+        In stock
+      </dt>
+      <dd>
+        <%= @the_card.in_stock %>
+      </dd>
+
+      <dt>
+        Product code
+      </dt>
+      <dd>
+        <%= @the_card.product_code %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_card.category_id %>
+      </dd>
+
+      <dt>
+        Subcategory
+      </dt>
+      <dd>
+        <%= @the_card.subcategory_id %>
+      </dd>
+
+      <dt>
+        Avatar
+      </dt>
+      <dd>
+        <%= @the_card.avatar %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_card.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_card.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit card
+    </h2>
+
+    <form action="/modify_card/<%= @the_card.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_card.name %>">
+      </div>
+
+      <div>
+        <label for="in_stock_box">
+          In stock
+        </label>
+
+        <input type="text" id="in_stock_box" name="query_in_stock" value="<%= @the_card.in_stock %>">
+      </div>
+
+      <div>
+        <label for="product_code_box">
+          Product code
+        </label>
+
+        <input type="text" id="product_code_box" name="query_product_code" value="<%= @the_card.product_code %>">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_card.category_id %>">
+      </div>
+
+      <div>
+        <label for="subcategory_id_box">
+          Subcategory
+        </label>
+
+        <input type="text" id="subcategory_id_box" name="query_subcategory_id" value="<%= @the_card.subcategory_id %>">
+      </div>
+
+      <div>
+        <label for="avatar_box">
+          Avatar
+        </label>
+
+        <input type="text" id="avatar_box" name="query_avatar" value="<%= @the_card.avatar %>">
+      </div>
+
+      <button>
+        Update card
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,166 @@
+<div>
+  <div>
+    <h1>
+      List of all cards
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new card
+    </h2>
+
+    <form action="/insert_card" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="in_stock_box">
+          In stock
+        </label>
+
+        <input type="text" id="in_stock_box" name="query_in_stock">
+      </div>
+
+      <div>
+        <label for="product_code_box">
+          Product code
+        </label>
+
+        <input type="text" id="product_code_box" name="query_product_code">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id">
+      </div>
+
+      <div>
+        <label for="subcategory_id_box">
+          Subcategory
+        </label>
+
+        <input type="text" id="subcategory_id_box" name="query_subcategory_id">
+      </div>
+
+      <div>
+        <label for="avatar_box">
+          Avatar
+        </label>
+
+        <input type="text" id="avatar_box" name="query_avatar">
+      </div>
+
+      <button>
+        Create card
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          In stock
+        </th>
+
+        <th>
+          Product code
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Subcategory
+        </th>
+
+        <th>
+          Avatar
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_cards.each do |a_card| %>
+      <tr>
+        <td>
+          <%= a_card.id %>
+        </td>
+
+        <td>
+          <%= a_card.name %>
+        </td>
+
+        <td>
+          <%= a_card.in_stock %>
+        </td>
+
+        <td>
+          <%= a_card.product_code %>
+        </td>
+
+        <td>
+          <%= a_card.category_id %>
+        </td>
+
+        <td>
+          <%= a_card.subcategory_id %>
+        </td>
+
+        <td>
+          <%= a_card.avatar %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_card.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_card.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/cards/<%= a_card.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
