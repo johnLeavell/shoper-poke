@@ -7,6 +7,7 @@ class CreateCards < ActiveRecord::Migration[7.0]
       t.integer :category_id
       t.integer :subcategory_id
       t.string :avatar
+      t.string :price
 
       t.timestamps
     end
