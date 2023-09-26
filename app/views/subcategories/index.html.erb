@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all subcategories
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new subcategory
+    </h2>
+
+    <form action="/insert_subcategory" method="post">
+      <div>
+        <label for="cards_count_box">
+          Cards count
+        </label>
+
+        <input type="text" id="cards_count_box" name="query_cards_count">
+      </div>
+
+      <button>
+        Create subcategory
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Cards count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_subcategories.each do |a_subcategory| %>
+      <tr>
+        <td>
+          <%= a_subcategory.id %>
+        </td>
+
+        <td>
+          <%= a_subcategory.cards_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_subcategory.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_subcategory.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/subcategories/<%= a_subcategory.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Subcategory resource:
+
+  # CREATE
+  post("/insert_subcategory", { :controller => "subcategories", :action => "create" })
+          
+  # READ
+  get("/subcategories", { :controller => "subcategories", :action => "index" })
+  
+  get("/subcategories/:path_id", { :controller => "subcategories", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_subcategory/:path_id", { :controller => "subcategories", :action => "update" })
+  
+  # DELETE
+  get("/delete_subcategory/:path_id", { :controller => "subcategories", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

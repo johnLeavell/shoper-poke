@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Subcategory #<%= @the_subcategory.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/subcategories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_subcategory/<%= @the_subcategory.id %>">
+          Delete subcategory
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Cards count
+      </dt>
+      <dd>
+        <%= @the_subcategory.cards_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_subcategory.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_subcategory.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit subcategory
+    </h2>
+
+    <form action="/modify_subcategory/<%= @the_subcategory.id %>"  method="post" >
+      <div>
+        <label for="cards_count_box">
+          Cards count
+        </label>
+
+        <input type="text" id="cards_count_box" name="query_cards_count" value="<%= @the_subcategory.cards_count %>">
+      </div>
+
+      <button>
+        Update subcategory
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
