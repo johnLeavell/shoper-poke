@@ -4,6 +4,10 @@ class CardsController < ApplicationController
 
     @list_of_cards = matching_cards.order({ :created_at => :desc })
 
+
+
+    puts @cards = Pokemon::Card.where(name: "Pikachu").first
+
     render({ :template => "cards/index" })
   end
 
