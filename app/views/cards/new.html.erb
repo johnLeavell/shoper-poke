@@ -1,0 +1,36 @@
+<h2>New Card</h2>
+
+<% @card.errors.full_messages.each do |message|%>
+  <p style="color: red;"><%= message %></p>
+<% end %>
+
+<%= form_with(model: @card, data: {turbo: :false}) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+   <div>
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :in_stock %>
+    <%= form.text_field :in_stock %>
+  </div>
+
+  <div>
+    <%= form.label :avatar %>
+    <%= form.text_field :avatar %>
+  </div>
+
+   <div>
+    <%= form.label :product_code %>
+    <%= form.text_field :product_code %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

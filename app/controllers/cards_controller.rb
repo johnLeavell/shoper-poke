@@ -1,22 +1,14 @@
 class CardsController < ApplicationController
+  def new
+    @card = Card.new
+  end
+  
   def index
-    matching_cards = Card.all
-
-    @list_of_cards = matching_cards.order({ :created_at => :desc })
-
-
-
-    puts @cards = Pokemon::Card.where(name: "Pikachu").first
-
-    render({ :template => "cards/index" })
+    @cards = Card.new
   end
 
   def show
-    the_id = params.fetch("path_id")
-
-    matching_cards = Card.where({ :id => the_id })
-
-    @the_card = matching_cards.at(0)
+    @the_card = Card.find(params.fetch(:id))
 
     render({ :template => "cards/show" })
   end
@@ -58,11 +50,13 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_card = Card.where({ :id => the_id }).at(0)
+    @the_card = Card.find(params.fetch(:id))
 
-    the_card.destroy
+    @the_card.destroy
 
-    redirect_to("/cards", { :notice => "Card deleted successfully."} )
+    redirect_to cards_url, :notice => "Card deleted successfully."
   end
+
+  private
+
 end
